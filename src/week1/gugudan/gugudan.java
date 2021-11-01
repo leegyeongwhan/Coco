@@ -1,4 +1,4 @@
-package week1;
+package week1.gugudan;
 
 public class gugudan {
     public static void main (String[] args){
