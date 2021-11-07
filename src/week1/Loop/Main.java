@@ -1,4 +1,4 @@
-package week1.ifandfor;
+package week1.Loop;
 
 import java.util.Scanner;
 
