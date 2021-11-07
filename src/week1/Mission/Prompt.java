@@ -23,31 +23,6 @@ public class Prompt {
         return input;
     }
 
-    public static String memberSuffle(int input) {
-        List<String> member = new ArrayList<String>();
-        member.add("탁수");
-        member.add("제리");
-        member.add("만두");
-        member.add("mk");
-        member.add("타니");
-        member.add("노리");
-        member.add("땃쥐");
-        member.add("k");
-        member.add("피오");
-        member.add("동기");
-        member.add("단");
-
-
-        Collections.shuffle(member);
-        String[] listmeber = new String[input];
-        for (int i = 0; i < input; i++) {
-            listmeber[i] = member.get(i);
-        }
-        Arrays.sort(listmeber);
-      //  System.out.println(Arrays.toString(listmeber));
-        return Arrays.toString(listmeber);
-    }
-
 
     private static boolean checkMemberCount(int input) {
 
@@ -63,8 +38,10 @@ public class Prompt {
 //        return sufflemember();
 //    }
 
-    public static void printMember() {
-
+    public static void printMember(List<String> member) {
+        for (int i = 0; i < member.size(); i++) {
+            System.out.println(member.get(i));
+        }
     }
 
 }
