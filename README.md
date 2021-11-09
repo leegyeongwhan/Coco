@@ -9,3 +9,8 @@
 
 ------
 [ WEEK 1](https://github.com/leegyeongwhan/Coco/tree/master/src/week1)
+
+# WEEK 2 (2021.11.08 ~ 2021.11.014)
+
+------
+[ WEEK 2](https://github.com/leegyeongwhan/Coco/tree/master/src/week2)
