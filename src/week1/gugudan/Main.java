@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> countDan = Prompt.input();
+        List<Integer> countDan = PromptDan.input();
         Dan dan = Dan.of(countDan);
-        Prompt.danPrint(dan);
+        PromptDan.danPrint(dan);
     }
 }
