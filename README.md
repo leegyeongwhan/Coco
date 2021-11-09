@@ -1,15 +1,16 @@
 # 코코아 코드스쿼드
 
-## 미션 1
+------
+2021.11.01(월)  2021.12.02(목) 5주간,  미션과 공부를 정리
+# 회고 
+------
 
--  구구단
--  조건문 반복문 연습
+# WEEK 1 (2021.11.01 ~ 2021.11.07)
 
-   - 윤년 시험성적
--  git,GitHub 공부
-   - ide와 깃허브 연동
-   - git  cli ,gui 설치
+------
+[ WEEK 1](https://github.com/leegyeongwhan/Coco/tree/master/src/week1)
 
-   - 마크다운문법 공부
--  별찍기
+# WEEK 2 (2021.11.08 ~ 2021.11.014)
 
+------
+[ WEEK 2](https://github.com/leegyeongwhan/Coco/tree/master/src/week2)
