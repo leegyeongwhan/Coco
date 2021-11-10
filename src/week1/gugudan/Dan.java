@@ -4,12 +4,16 @@ import java.util.List;
 
 public class Dan {
     //단 검사
-    private final int start;
-    private final int end;
+    private  int start;
+    private  int end;
 
     public Dan(List<Integer> countDan) {
         this.start = Math.min(countDan.get(0), countDan.get(1));
         this.end = Math.max(countDan.get(0), countDan.get(1));
+
+    }
+
+    public Dan() {
 
     }
 
