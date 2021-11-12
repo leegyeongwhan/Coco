@@ -10,7 +10,20 @@
 ------
 [ WEEK 1](https://github.com/leegyeongwhan/Coco/tree/master/src/week1)
 
+| 미션                       |  링크                                                  |
+| :------------------------- | -------------------------------------------------------- |
+| 랜덤 뽑기 | https://github.com/leegyeongwhan/Coco/tree/master/src/week1/Mission |  
+| 인디언 이름 | https://github.com/leegyeongwhan/Coco/tree/master/src/week1/Mission2  | 
+| 초간단 RPG | https://github.com/leegyeongwhan/Coco/tree/master/src/week2/rpg|
+| 숫자퍼즐 |  |
+| 2048 |  |
+| sokoban |  |
 # WEEK 2 (2021.11.08 ~ 2021.11.014)
 
 ------
 [ WEEK 2](https://github.com/leegyeongwhan/Coco/tree/master/src/week2)
+| 미션                |  링크                                                  |
+| :---------------- | -------------------------------------------------------- |
+| 가게부 |     https://github.com/leegyeongwhan/Coco/tree/master/src/week2/Accountbook |
+| 행맨|   | 
+| 홀짝게임|   
