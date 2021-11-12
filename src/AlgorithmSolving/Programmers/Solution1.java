@@ -13,7 +13,7 @@ class Solution1 {
             sum += date[i];  //날짜 계산
         }
 
-        sum += (b-1);
+        sum += (b-1);  //시작일이 1월1일니까 1일뺴자
 
         answer = day[sum%7];
        // System.out.println(answer);
