@@ -9,6 +9,7 @@
 [ day 9](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day09.md)
 [ day 10](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day10.md)
 [ day 11](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day11.md)
+[ day 12](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day12.md)
 ## 2주차 목표
 
 
@@ -17,5 +18,6 @@
 
 ## 주 회고
 
-
+- 이번주 미션을 그래도 저번주보다 많이 완수한거같고 학습도 저번주 보다 많이 늘은거같다 그래도 절대적 학습량을 좀더 늘려
+  부족한 실력을 극복해야겠다 다음주에 더 어려운 미션을 기다리고 있겠지만 포기하지말고 끝까지 해보자!
 
