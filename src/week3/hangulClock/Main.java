@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 public class Main {
     public static void main(String[] args){
         HangulClock hc = new HangulClock();
-        hc.runHagulClock();
+        hc.runTimer();
 
     }
 

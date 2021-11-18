@@ -2,6 +2,8 @@ package week3.hangulClock;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HangulClock {
     private int hour = 0;
@@ -38,6 +40,20 @@ public class HangulClock {
 //        }
 //        return clockSetting();
 //    }
+
+    public void runTimer() {
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                runHagulClock();
+            }
+        };
+        Timer timer = new Timer();
+        long delay = 0;
+        long intervalPeriod = 5000;
+        timer.scheduleAtFixedRate(task, delay, intervalPeriod);
+    }
+
 
 
     public void timeFormatter() {
