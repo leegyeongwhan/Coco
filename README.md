@@ -27,3 +27,12 @@
 | 가게부 |     https://github.com/leegyeongwhan/Coco/tree/master/src/week2/Accountbook |
 | 행맨|   | 
 | 홀짝게임|   
+# WEEK 3 (2021.11.08 ~ 2021.11.014)
+
+------
+[ WEEK 3](https://github.com/leegyeongwhan/Coco/tree/master/src/week3)
+| 미션                |  링크                                                  |
+| :---------------- | -------------------------------------------------------- |
+| 셸 |     |
+| 한글시계|   | 
+
