@@ -46,40 +46,24 @@ public class HangulClock {
         this.minute = dateTime.getMinute();
     }
 
-    public void checkClcokHour() {
+    public void runHagulClock() {
         timeFormatter();  //현재시간  hour11
         int changeHour = hour % 12;
         //     System.out.println(hour);
         HourData[] hourData = HourData.values();  // enum 정보
-//        for(int i=0; i<hourData.length; i++){
-//            System.out.println(hourData[i]);
-//        }
         MinuteData[] minuteData = MinuteData.values();
-        //   String[][] backgroundClockArr = clockBackground();
-        createHangulClockHour(hourData, hangulClockArr, changeHour);
-        createHangulClockMinute(minuteData, hangulClockArr, minute);
+        CreateHangulClockForm cf = new CreateHangulClockForm();
+        cf.createHangulClockHour(hourData, hangulClockArr, changeHour);
+        cf.createHangulClockOneMinute(minuteData, hangulClockArr, minute);
+        cf.createHangulClockTenMinute(minuteData, hangulClockArr, minute);
         midnightDivision(hangulClockArr, hour);
         printHangulClock();
     }
 
 
-    private void createHangulClockHour(HourData[] hourData, String[][] hangulClockArr, int hour) {
-        hangulClockArr[2][5] = ANSI_CYAN + "시" + ANSI_RESET;
-        for (HourData hd : hourData) {
-            if (hd.getHour() == hour) {
-                hangulClockArr[hd.getRow()][hd.getColumn()] = ANSI_CYAN + hd.getHangul() + ANSI_RESET;
-            }
-        }
-    }
-
-    private void createHangulClockMinute(MinuteData[] minuteData, String[][] hangulClockArr, int minute) {
-        hangulClockArr[5][5] = ANSI_CYAN + "분" + ANSI_RESET;
-        for (MinuteData md : minuteData) {
-            if (md.getMinute() == minute) {
-                hangulClockArr[md.getRow()][md.getColumn()] = ANSI_CYAN + md.getHangul() + ANSI_RESET;
-            }
-        }
-    }
+//    private void createHangulClockTenMinute(){
+//
+//    }
 
 
     private void printHangulClock() {
