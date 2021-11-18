@@ -7,13 +7,19 @@ public enum HourData {
     THREE("세", 3, 0, 2),
     FOUR("네", 4, 0, 3),
     FIVE("다섯", 5, 0, 4),
-    SIX("여섯", 6, 1, 0),
-    SEVEN("일곱", 7, 1, 2),
-    EIGHT("여덟", 8, 1, 2),
-    NINE("아홉", 9, 2, 3),
-    TEN("열", 10, 3, 0),
-    ELEVEN("열하나", 11, 4, 0),
-    TWELVE("열둘", 12, 5, 0);
+    SIX1("여", 6, 1, 0),
+    SIX2("섯", 6, 1, 1),
+    SEVEN1("일", 7, 1, 2),
+    SEVEN2("곱", 7, 1, 3),
+    EIGHT1("여", 8, 1, 4),
+    EIGHT2("덟", 8, 1, 5),
+    NINE1("아", 9, 2, 0),
+    NINE2("홉", 9, 2, 1),
+    TEN("열", 10, 2, 2),
+    ELEVEN_TEN("열", 11, 2, 2),
+    ELEVEN("한", 11, 2, 3),
+    TWELVE_TEN("열", 0, 2, 2),
+    TWELVE("두", 0, 2, 4);
 
     private String hangul;
     private int hour;
@@ -38,6 +44,7 @@ public enum HourData {
     public int getColumn() {
         return this.column;
     }
+
     public String getHangul() {
         return this.hangul;
     }

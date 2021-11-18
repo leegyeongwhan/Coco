@@ -5,23 +5,35 @@ public class CreateHangulClockForm {
     public static final String ANSI_RESET = "\u001B[0m";
 
 
-  void createHangulClockHour(HourData[] hourData, String[][] hangulClockArr, int hour) {
+    void createHangulClockHour(HourData[] hourData, String[][] hangulClockArr, int hour) {
         hangulClockArr[2][5] = ANSI_CYAN + "시" + ANSI_RESET;
-        for (HourData hd : hourData) {
-            if (hd.getHour() == hour) {
-                hangulClockArr[hd.getRow()][hd.getColumn()] = ANSI_CYAN + hd.getHangul() + ANSI_RESET;
+        int changeHour = hour % 12;
+        if (hour == 0) {
+            for (HourData hd : hourData) {
+                if (hd.getHour() == hour) {
+                    hangulClockArr[hd.getRow()][hd.getColumn()] = ANSI_CYAN + hd.getHangul() + ANSI_RESET;
+                }
             }
         }
+        if (hour < 12) {
+            for (HourData hd : hourData) {
+                if (hd.getHour() == changeHour) {
+                    hangulClockArr[hd.getRow()][hd.getColumn()] = ANSI_CYAN + hd.getHangul() + ANSI_RESET;
+                }
+            }
+        }
+
     }
 
-     void createHangulClockTenMinute(MinuteData[] minuteData, String[][] hangulClockArr, int minute) {
+    void createHangulClockTenMinute(MinuteData[] minuteData, String[][] hangulClockArr, int minute) {  //10분넘는 분
         hangulClockArr[5][5] = ANSI_CYAN + "분" + ANSI_RESET;
-        int changeMinute1 = minute%10;
-        int changeMinute2 = minute/10;
+        int changeMinute1 = minute % 10;
+        int tenchangeMinute = minute - (changeMinute1);
+        int changeMinute2 = minute / 10;
         if (minute > 10) {
             hangulClockArr[3][5] = ANSI_CYAN + "십" + ANSI_RESET;
             for (MinuteData md : minuteData) {
-                if (md.getMinute() == changeMinute1) {
+                if (md.getMinute() == tenchangeMinute) {
                     hangulClockArr[md.getRow()][md.getColumn()] = ANSI_CYAN + md.getHangul() + ANSI_RESET;
                 }
                 if (md.getMinute() == changeMinute2) {
@@ -35,7 +47,7 @@ public class CreateHangulClockForm {
 
     public void createHangulClockOneMinute(MinuteData[] minuteData, String[][] hangulClockArr, int minute) {
         hangulClockArr[5][5] = ANSI_CYAN + "분" + ANSI_RESET;
-        if(minute<10){
+        if (minute < 10) {
             for (MinuteData md : minuteData) {
                 if (md.getMinute() == minute) {
                     hangulClockArr[md.getRow()][md.getColumn()] = ANSI_CYAN + md.getHangul() + ANSI_RESET;

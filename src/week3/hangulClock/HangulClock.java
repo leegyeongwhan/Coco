@@ -18,28 +18,6 @@ public class HangulClock {
                     {"정", "일", "이", "삼", "사", "육"},
                     {"오", "오", "칠", "팔", "구", "분"}};
 
-//    private String[][] clockBackground() {
-//        String[][] cb = new String[6][6];
-//        for (int i = 0; i < cb.length; i++) {
-//            for (int j = 0; j < cb[i].length; j++) {
-//                cb[i][j] = "*";
-//            }
-//
-//        }
-//        return cb;
-//    }
-
-
-//    public String[][] clockSetting() {
-//        for (int i = 0; i < clock.length; i++) {
-//            for (int j = 0; j < clock[i].length; j++) {
-//                System.out.printf(clock[i][j]);
-//            }
-//            System.out.println();
-//
-//        }
-//        return clockSetting();
-//    }
 
     public void runTimer() {
         TimerTask task = new TimerTask() {
@@ -55,7 +33,6 @@ public class HangulClock {
     }
 
 
-
     public void timeFormatter() {
         LocalDateTime dateTime = LocalDateTime.now();
         this.hour = dateTime.getHour();
@@ -64,12 +41,13 @@ public class HangulClock {
 
     public void runHagulClock() {
         timeFormatter();  //현재시간  hour11
-        int changeHour = hour % 12;
-        //     System.out.println(hour);
+        //   int changeHour = hour % 12;
+//             System.out.println(hour);
+//        System.out.println(minute);
         HourData[] hourData = HourData.values();  // enum 정보
         MinuteData[] minuteData = MinuteData.values();
         CreateHangulClockForm cf = new CreateHangulClockForm();
-        cf.createHangulClockHour(hourData, hangulClockArr, changeHour);
+        cf.createHangulClockHour(hourData, hangulClockArr, hour);
         cf.createHangulClockOneMinute(minuteData, hangulClockArr, minute);
         cf.createHangulClockTenMinute(minuteData, hangulClockArr, minute);
         midnightDivision(hangulClockArr, hour);
