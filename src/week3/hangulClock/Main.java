@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args){
         HangulClock hc = new HangulClock();
         hc.timeFormatter();
-        hc.checkClcok();
+        hc.checkClcokHour();
 
 
     }
