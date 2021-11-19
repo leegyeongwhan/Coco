@@ -1,4 +1,4 @@
-package ChulSu;
+package week3.MyCalendar;
 
 import java.time.LocalDate;
 import java.util.Calendar;

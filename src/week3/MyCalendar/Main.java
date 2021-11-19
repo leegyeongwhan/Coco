@@ -1,7 +1,4 @@
-package ChulSu;
-
-import java.util.Calendar;
-import java.util.Scanner;
+package week3.MyCalendar;
 
 public class Main {
     public static void main(String[] args) {
