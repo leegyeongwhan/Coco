@@ -15,7 +15,7 @@ public class CreateHangulClockForm {
                 }
             }
         }
-        if (hour < 12) {
+        if (hour > 12) {
             for (HourData hd : hourData) {
                 if (hd.getHour() == changeHour) {
                     hangulClockArr[hd.getRow()][hd.getColumn()] = ANSI_CYAN + hd.getHangul() + ANSI_RESET;

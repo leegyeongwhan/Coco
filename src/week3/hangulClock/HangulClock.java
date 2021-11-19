@@ -1,7 +1,6 @@
 package week3.hangulClock;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,21 +25,21 @@ public class HangulClock {
                 runHagulClock();
             }
         };
-        Timer timer = new Timer();
         long delay = 0;
         long intervalPeriod = 5000;
+        Timer timer = new Timer();
         timer.scheduleAtFixedRate(task, delay, intervalPeriod);
     }
 
 
-    public void timeFormatter() {
+    public void initTime() {
         LocalDateTime dateTime = LocalDateTime.now();
         this.hour = dateTime.getHour();
         this.minute = dateTime.getMinute();
     }
 
     public void runHagulClock() {
-        timeFormatter();  //현재시간  hour11
+        initTime();  //현재시간  hour11
         //   int changeHour = hour % 12;
 //             System.out.println(hour);
 //        System.out.println(minute);
@@ -60,7 +59,7 @@ public class HangulClock {
 //    }
 
 
-    private void printHangulClock() {
+    public void printHangulClock() {
         for (int i = 0; i < hangulClockArr.length; i++) {
             for (int j = 0; j < hangulClockArr[i].length; j++) {
                 System.out.printf(hangulClockArr[i][j]);

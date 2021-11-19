@@ -1,10 +1,8 @@
 package week3.calendar;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        CurrentCalendar calendar = new CurrentCalendar();
+        CreateCalendar calendar = new CreateCalendar();
         calendar.runCalendar();  //현재의 년도
 
 
