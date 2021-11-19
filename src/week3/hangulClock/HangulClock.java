@@ -46,6 +46,7 @@ public class HangulClock {
         HourData[] hourData = HourData.values();  // enum 정보
         MinuteData[] minuteData = MinuteData.values();
         CreateHangulClockForm cf = new CreateHangulClockForm();
+        System.out.println(minute);
         cf.createHangulClockHour(hourData, hangulClockArr, hour);
         cf.createHangulClockOneMinute(minuteData, hangulClockArr, minute);
         cf.createHangulClockTenMinute(minuteData, hangulClockArr, minute);

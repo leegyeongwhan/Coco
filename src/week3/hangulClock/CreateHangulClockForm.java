@@ -22,6 +22,13 @@ public class CreateHangulClockForm {
                 }
             }
         }
+        if (hour < 12) {
+            for (HourData hd : hourData) {
+                if (hd.getHour() == hour) {
+                    hangulClockArr[hd.getRow()][hd.getColumn()] = ANSI_CYAN + hd.getHangul() + ANSI_RESET;
+                }
+            }
+        }
 
     }
 
@@ -29,14 +36,14 @@ public class CreateHangulClockForm {
         hangulClockArr[5][5] = ANSI_CYAN + "분" + ANSI_RESET;
         int changeMinute1 = minute % 10;
         int tenchangeMinute = minute - (changeMinute1);
-        int changeMinute2 = minute / 10;
+//        int changeMinute2 = minute / 10;
         if (minute > 10) {
             hangulClockArr[3][5] = ANSI_CYAN + "십" + ANSI_RESET;
             for (MinuteData md : minuteData) {
-                if (md.getMinute() == tenchangeMinute) {
-                    hangulClockArr[md.getRow()][md.getColumn()] = ANSI_CYAN + md.getHangul() + ANSI_RESET;
-                }
-                if (md.getMinute() == changeMinute2) {
+//                if (md.getMinute() == tenchangeMinute) {
+//                    hangulClockArr[md.getRow()][md.getColumn()] = ANSI_CYAN + md.getHangul() + ANSI_RESET;
+//                }
+                if (md.getMinute() == changeMinute1) {
                     hangulClockArr[md.getRow()][md.getColumn()] = ANSI_CYAN + md.getHangul() + ANSI_RESET;
                 }
             }

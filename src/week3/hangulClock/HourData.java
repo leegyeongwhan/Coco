@@ -5,6 +5,7 @@ public enum HourData {
     ONE("한", 1, 0, 0),
     TWO("두", 2, 0, 1),
     THREE("세", 3, 0, 2),
+
     FOUR("네", 4, 0, 3),
     FIVE("다섯", 5, 0, 4),
     SIX1("여", 6, 1, 0),
