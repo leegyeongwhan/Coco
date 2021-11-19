@@ -5,13 +5,13 @@ import java.util.*;
 public class CreateCalendar {
     private final int[] MONTHARR = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     private final int[] LEAPYEAR_MONTHARR = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    private final String[] WEEK = {"일", "월","화", "수", "목", "금", "토", };
+    private final String[] WEEK = {"일", "월","화", "수", "목", "금", "토"};
 //
 //    private int month = 0;
 //    private int year = 0;
 
 
-    public void runCalendar() {
+    public void run() {
 
         getCurrentTime();
         buildCurrentCalendar();

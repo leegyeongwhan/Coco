@@ -3,7 +3,7 @@ package week3.calendar;
 public class Main {
     public static void main(String[] args) {
         CreateCalendar calendar = new CreateCalendar();
-        calendar.runCalendar();  //현재의 년도
+        calendar.run();  //현재의 년도
 
 
 //        Scanner scanner = new Scanner (System.in);
