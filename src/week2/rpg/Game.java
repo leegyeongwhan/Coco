@@ -22,26 +22,30 @@ public class Game {
         //랜덤 몬스터 위치 세팅
         initPlayer();
         initMonster();
-        initMine();
+
     }
 
     private void initMine() {
         System.out.println("지뢰의숫자:" + monster.minenum);
-        r = new Random();
-        int x = r.nextInt(gameMap.x);
-        int y = r.nextInt(gameMap.y);
-        checkMine(x, y);
-        gameMap.map[x][y] = "✦";
+
+        //checkMine();
         gameMap.mapPrint();
     }
 
-    private void checkMine(int x, int y) {
+    private void checkMine() {
+        r = new Random();
+        int x = r.nextInt(gameMap.x);
+        int y = r.nextInt(gameMap.y);
+
+        System.out.println(x);
+        System.out.println(y);
         if (gameMap.map[x][y] == gameMap.map[2][2]) {
-            initMine();
+            checkMine();
         }
-        if(gameMap.map[x][y] == "Ｍ"){
-            initMine();
+        if (gameMap.map[x][y] == "Ｍ") {
+            checkMine();
         }
+        gameMap.map[x][y] = "✦";
     }
 
     private void initPlayer() {
@@ -53,20 +57,25 @@ public class Game {
 
     private void initMonster() {
         System.out.println("몬스터이름:" + monster.name);
-        r = new Random();
-        int x = r.nextInt(gameMap.x);
-        int y = r.nextInt(gameMap.y);
+        checkMonster();
 
-        checkMonster(x, y);
-        gameMap.map[x][y] = "Ｍ";
     }
 
-    private void checkMonster(int x, int y) {
-        System.out.println(x);
-        System.out.println(y);
-        if (gameMap.map[x][y] == gameMap.map[2][2]) {
-            checkMonster(x, y);
+    private void checkMonster() {  //가독성이 많이 떨어진다..어떻게 하면 좋을까
+        r = new Random();
+        int xy[] = new int[2];
+        boolean flag = true;
+        while (flag) {
+            xy[0] = r.nextInt(gameMap.x);
+            xy[1] = r.nextInt(gameMap.y);
+            System.out.println(xy[0]);
+            System.out.println(xy[1]);
+            if (xy[0] != 2 || xy[1] != 2) {
+                flag = false;
+                gameMap.map[xy[0]][xy[1]] = "Ｍ";
+            }
         }
+        gameMap.mapPrint();
     }
 
     public void gameStart() {
