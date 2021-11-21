@@ -34,5 +34,5 @@
 | 미션                |  링크                                                  |
 | :---------------- | -------------------------------------------------------- |
 | 셸 |     |
-| 한글시계|   | 
-
+| 한글시계|  https://github.com/leegyeongwhan/Coco/tree/master/src/week3/hangulClock | 
+| 달력|  https://github.com/leegyeongwhan/Coco/tree/master/src/week3/MyCalendar | 
