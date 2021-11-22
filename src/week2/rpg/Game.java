@@ -49,6 +49,7 @@ public class Game {
 
 
     private boolean gamePlay(int[] locationMine, int[] locationMonster, int[] locationPlayer) {
+
         while (true) {
             gameMap.mapPrint();
             locationPlayer = movePlayer(locationPlayer);
