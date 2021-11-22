@@ -10,6 +10,10 @@ public class Main {
 
 
         game.gameStart();
+
+
+
+
         //   monster.produce();  // 임이의 위치에 이ㅏ동 몬스터 캐릭터 지뢰생성
         //   player.produce();
 
