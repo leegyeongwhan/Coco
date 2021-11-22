@@ -9,7 +9,7 @@ public class Game {
     private Monster monster;
     private Player player;
     private GameMap gameMap;
-    //String[][] map = gameMap.map;
+    String[][] map;
 
     Game(Monster monster, Player player, GameMap gameMap) {
         this.monster = monster;
@@ -20,6 +20,13 @@ public class Game {
 
     public void gameStart() {
         initGame();
+        boolean fleg = true;
+        int score = 0;
+        while (fleg) {
+            fleg = gamePlayLocation();
+            score += 100;
+        }
+        System.out.println("당신의점수는" + score);
     }
 
     public void initGame() {
@@ -30,28 +37,29 @@ public class Game {
         initMonster();
         initMine();
         //게임에 필요한 캐릭터들 위치조정
-        gamePlayLocation(locationMine(), locationMonster(), locationPlayer());  //난수들만듬
+        gamePlayLocation();  //난수들만듬
 
     }
 
-    private void gamePlayLocation(int[] locationMine, int[] locationMonster, int[] locationPlayer) {
+    private boolean gamePlayLocation() {
+        String[][] map = gameMap.mapsetting();
         int[] locationPlayerXy;
-        locationPlayerXy = locationPlayer;
-        gameMap.map[locationPlayerXy[0]][locationPlayerXy[1]] = "⬛";
+        locationPlayerXy = locationPlayer();
+        map[locationPlayerXy[0]][locationPlayerXy[1]] = "⬛";
         int[] locationMineXy;
-        locationMineXy = locationMine;
-        gameMap.map[locationMineXy[0]][locationMineXy[1]] = "✦";
+        locationMineXy = locationMine();
+        //  gameMap.map[locationMineXy[0]][locationMineXy[1]] = "✦";
         int[] locationMosterXy;
-        locationMosterXy = locationMonster;
-        gameMap.map[locationMosterXy[0]][locationMosterXy[1]] = "Ｍ";
-        gamePlay(locationMineXy, locationMosterXy, locationPlayerXy);
+        locationMosterXy = locationMonster();
+        map[locationMosterXy[0]][locationMosterXy[1]] = "Ｍ";
+        return gamePlay(map, locationMineXy, locationMosterXy, locationPlayerXy);
     }
 
 
-    private boolean gamePlay(int[] locationMine, int[] locationMonster, int[] locationPlayer) {
+    private boolean gamePlay(String[][] map, int[] locationMine, int[] locationMonster, int[] locationPlayer) {
 
         while (true) {
-            gameMap.mapPrint();
+            gameMap.mapPrint(map);
             locationPlayer = movePlayer(locationPlayer);
             if (locationPlayer[0] == locationMonster[0] && locationPlayer[1] == locationMonster[1]) {
                 System.out.println("몬스터를 잡았습니다");

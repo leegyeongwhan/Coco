@@ -17,17 +17,17 @@ public class GameMap {
 
     }
 
-    private void mapsetting() {
+    public String[][] mapsetting() {
         for (int i = 0; i < this.x; i++) {
             for (int j = 0; j < this.y; j++) {
                 this.map[i][j] = "ㅁ";
             }
         }
-
+        return map;
 
     }
 
-    public void mapPrint() {
+    public void mapPrint(String[][] map) {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map.length; j++) {
                 System.out.printf(map[i][j]);
