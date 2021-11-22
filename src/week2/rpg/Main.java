@@ -5,7 +5,7 @@ public class Main {
 
         Player player = new Player("taksu", 15, 100);
         GameMap map = new GameMap(5, 5);
-        Monster monster = new Monster("요롱롱", 2);
+        Monster monster = new Monster("요롱롱", 1);
         Game game = new Game(monster, player, map);
 
 
