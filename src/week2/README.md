@@ -12,7 +12,7 @@
 | day9 |   [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day09.md)  |
 | day10 |  [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day10.md)  |
 | day11 |    [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day11.md) | 
-| day12 |   [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day12.md)  |
+| day12 |   [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day13.md)  |
 
 
 
