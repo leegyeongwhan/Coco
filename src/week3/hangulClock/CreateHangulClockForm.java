@@ -40,15 +40,16 @@ public class CreateHangulClockForm {
         if (minute > 10) {
             hangulClockArr[3][5] = ANSI_CYAN + "십" + ANSI_RESET;
             for (MinuteData md : minuteData) {
-//                if (md.getMinute() == tenchangeMinute) {
+                if (md.getMinute() == changeMinute1) {
 //                    hangulClockArr[md.getRow()][md.getColumn()] = ANSI_CYAN + md.getHangul() + ANSI_RESET;
 //                }
-                if (md.getMinute() == changeMinute1) {
-                    hangulClockArr[md.getRow()][md.getColumn()] = ANSI_CYAN + md.getHangul() + ANSI_RESET;
+                    if (md.getMinute() == tenchangeMinute) {
+                        hangulClockArr[md.getRow()][md.getColumn()] = ANSI_CYAN + md.getHangul() + ANSI_RESET;
+                    }
                 }
             }
-        }
 
+        }
 
     }  ////// 여기를 두개의 메서드로 나눌수있을까?
 

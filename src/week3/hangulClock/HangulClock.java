@@ -11,11 +11,11 @@ public class HangulClock {
     public static final String ANSI_RESET = "\u001B[0m";
     String[][] hangulClockArr = new String[][]
             {{"한", "두", "세", "네", "다", "섯"},
-        {"여", "섯", "일", "곱", "여", "덟"},
-        {"아", "홉", "열", "한", "두", "시"},
-        {"자", "이", "삼", "사", "오", "십"},
-        {"정", "일", "이", "삼", "사", "육"},
-        {"오", "오", "칠", "팔", "구", "분"}};
+                    {"여", "섯", "일", "곱", "여", "덟"},
+                    {"아", "홉", "열", "한", "두", "시"},
+                    {"자", "이", "삼", "사", "오", "십"},
+                    {"정", "일", "이", "삼", "사", "육"},
+                    {"오", "오", "칠", "팔", "구", "분"}};
 
 
     public void runTimer() {
@@ -48,8 +48,8 @@ public class HangulClock {
         CreateHangulClockForm cf = new CreateHangulClockForm();
         System.out.println(minute);
         cf.createHangulClockHour(hourData, hangulClockArr, hour);
-        cf.createHangulClockOneMinute(minuteData, hangulClockArr, minute);
         cf.createHangulClockTenMinute(minuteData, hangulClockArr, minute);
+        cf.createHangulClockOneMinute(minuteData, hangulClockArr, minute);
         midnightDivision(hangulClockArr, hour);
         printHangulClock();
     }
