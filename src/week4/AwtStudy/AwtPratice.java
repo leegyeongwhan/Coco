@@ -1,4 +1,4 @@
-package Struybook.ch11;
+package week4.AwtStudy;
 
 import java.awt.*;
 
