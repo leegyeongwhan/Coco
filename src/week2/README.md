@@ -12,7 +12,7 @@
 | day9 |   [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day09.md)  |
 | day10 |  [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day10.md)  |
 | day11 |    [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day11.md) | 
-| day12 |   [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day12.md)  |
+| day12 |   [ 링크](https://github.com/leegyeongwhan/TIL/blob/dolokkong/202111/day13.md)  |
 
 
 
@@ -24,7 +24,9 @@
 
 ## 2주차 목표
 
-
+- 가계부 구현
+- 클래스 상속 
+- 자바 컬렉션 라이브러리
 
 ------
 
