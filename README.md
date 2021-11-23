@@ -40,7 +40,7 @@
 # WEEK 4 (2021.11.22 ~ 2021.11.028)
 
 ------
-[ WEEK 3](https://github.com/leegyeongwhan/Coco/tree/master/src/week4)
+[ WEEK 4](https://github.com/leegyeongwhan/Coco/tree/master/src/week4)
 | 미션                |  링크                                                  |
 | :---------------- | -------------------------------------------------------- |
 | |     |
