@@ -7,6 +7,7 @@ import java.awt.event.WindowEvent;
 public class MyFrame extends Frame {
     Button red, green, blue;
     Button allRemove,selectRemove;
+    Button square,circle,beeline,curve;
     public MyFrame() {
         Frame f = new Frame("그림판");
         f.setSize(200, 200);
@@ -34,10 +35,10 @@ public class MyFrame extends Frame {
         mb.add(mHelp);
 
 //---------------------west-----------------------
-        Button square = new Button("Square");
-        Button circle = new Button("circle");
-        Button beeline = new Button("beeline");
-        Button curve = new Button("curve");
+        square = new Button("Square");
+         circle = new Button("circle");
+         beeline = new Button("beeline");
+        curve = new Button("curve");
         figure.add(square);
         figure.add(circle);
         figure.add(beeline);
