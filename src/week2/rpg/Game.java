@@ -2,6 +2,7 @@ package week2.rpg;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.awt.*;
 
 public class Game {
     //    GameMap gm = new GameMap();
@@ -9,7 +10,6 @@ public class Game {
     private Monster monster;
     private Player player;
     private GameMap gameMap;
-    String[][] map;
 
     Game(Monster monster, Player player, GameMap gameMap) {
         this.monster = monster;

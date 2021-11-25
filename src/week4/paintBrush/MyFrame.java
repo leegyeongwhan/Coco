@@ -1,28 +1,55 @@
 package week4.paintBrush;
 
-import week4.paintBrush.MyCanvas;
-
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.List;
+import java.awt.event.*;
 
 public class MyFrame extends Frame {
     Button red, green, blue;
     Button allRemove, selectRemove;
     Button square, circle, beeline, curve;
+    MenuBar menuBar = new MenuBar();
+    private int lwidth = 3;
+    private int x1, y1, x2, y2,dx1,dy1;
+    Frame f = new Frame();
+    private boolean isLine = false;
 
-    public MyFrame() {
-        super("그림판");
-        Frame f = new Frame();
+
+
+
+    public MyFrame(String title) {
+        super(title);
+        setSize(500, 500);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+        creatLayout();
+        addMouseListener(new MouseHandler());
+        addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent me) {
+                if (isLine) {
+                    dx1 = me.getX();
+                    dy1 = me.getY();
+                    repaint();
+                }
+            }
+        });
+        setVisible(true);
+    }
+
+
+    public void creatLayout() {
+        //---------------------------판넬 레이아웃 설정-----------------------------------------------
         Panel figurePanel = new Panel();
         Panel removePanel = new Panel();
         Panel colorPanel = new Panel();
         Panel center = new Panel();
-        // 캔버스 부착
+
         figurePanel.setLayout(new GridLayout(2, 2));
         removePanel.setLayout(new GridLayout(1, 1));
-// Frame BorderLayout 은 기본적으로 로 설정되어 있으므로 따로 설정하지 않아도 됨
         f.setLayout(new BorderLayout());
         Button north = new Button("North");
         MenuBar mb = new MenuBar();
@@ -32,81 +59,94 @@ public class MyFrame extends Frame {
         mb.add(mEdit);
         mb.add(mView);
         mb.add(mHelp);
+        // -----------------------------------------------------------
 
-//---------------------west-----------------------
+        //---------------------west-----------------------
         square = new Button("사각형");
         circle = new Button("원");
         beeline = new Button("직선");
         curve = new Button("곡선");
 
-        square.addActionListener(new EventHandler());
-        circle.addActionListener(new EventHandler());
-        beeline.addActionListener(new EventHandler());
-        curve.addActionListener(new EventHandler());
+        square.addActionListener(new FigureHandler());
+        circle.addActionListener(new FigureHandler());
+        beeline.addActionListener(new FigureHandler());
+        curve.addActionListener(new FigureHandler());
         figurePanel.add(square);
         figurePanel.add(circle);
         figurePanel.add(beeline);
         figurePanel.add(curve);
 
-
         //-------------------------------------------
-        //-------east--------------
+
+
+        //-------east------------------------
         allRemove = new Button("allRemove");
         selectRemove = new Button("selectRemove");
         removePanel.add(allRemove);
         removePanel.add(selectRemove);
-//-------------------------------
+        //-------------------------------------------
+
+
         //--------------------south----------------------
         red = new Button("RED");
         green = new Button("GREEN");
         blue = new Button("BLUE");
 
-        red.addActionListener(new EventHandler());
-        green.addActionListener(new EventHandler());
-        blue.addActionListener(new EventHandler());
+        red.addActionListener(new ColorHandler());
+        green.addActionListener(new ColorHandler());
+        blue.addActionListener(new ColorHandler());
         colorPanel.add(red);
         colorPanel.add(green);
         colorPanel.add(blue);
         //--------------------------------------
 
-//        MyCanvas can = new MyCanvas();
-//        can=new MyCanvas();
-//        can.setSize(300,300);
-//        can.setBackground(Color.white);
-//        center.add(can);
 
-
-// Frame 5 Button . 의 개의 각 영역에 을 하나씩 추가한다
+// ---------------------------FRAME에 판넬추가------------------------------------------
         f.add(north, "North"); // f.add("North",north); . 와 같이 쓸 수도 있다
         f.add(colorPanel, "South"); // South의 대소문자 정확히
         f.add(removePanel, "East"); // East , BorderLayout.EAST 대신 사용가능
         f.add(figurePanel, "West");
         f.add(center, "Center");
-
-
-        //   f.setVisible(true);
         f.setSize(500, 500);
         f.setVisible(true);
-//        -------------------------------켄버스
+//        --------------------------------------------------------------
 
-
-//        EventHandler eh = new EventHandler(f);
-
-//        circle.addActionListener(eh);
-//        beeline.addActionListener(eh);
-//        curve.addActionListener(eh);
-//
-//        red.addActionListener(eh);
-//        green.addActionListener(eh);
-//        blue.addActionListener(eh);
-//
-//        allRemove.addActionListener(eh);
-//        selectRemove.addActionListener(eh);
-
-        addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
     }
+
+
+    public void paintComponent(Graphics g) {
+        super.paintComponents(g);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(lwidth));
+
+
+    }
+
+
+    public void paint(Graphics g) {
+        paintComponent(g);
+    }
+
+
+    public void update(Graphics g) {
+        paint(g);
+    }
+
+
+    private class MouseHandler extends MouseAdapter {
+        @Override
+        public void mousePressed(MouseEvent e) {
+            x1 = e.getX();
+            y1 = e.getY();
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+            x2 = e.getX();
+            y2 = e.getY();
+            repaint();
+        }
+    }
+
+
 }
