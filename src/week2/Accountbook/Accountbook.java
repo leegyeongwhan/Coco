@@ -6,10 +6,10 @@ public class Accountbook {
 
     private static Scanner scanner = new Scanner(System.in);
     // private static HashSet<BookData> accountbook = new LinkedHashSet<BookData>();
-    private static List<BookData> accountbook = new ArrayList<BookData>();
+    private  List<BookData> accountbook = new ArrayList<BookData>();
     static int count = 0;
 
-    public static void mainmenu() {
+    public void mainmenu() {
         System.out.println("-------------");
         System.out.println("입력Insert=1");
         System.out.println("출력Select=2");
@@ -21,7 +21,7 @@ public class Accountbook {
 
     }
 
-    private static void insert() {
+    private void insert() {
         BookData bookData = new BookData();
         System.out.println("날짜를 입력하세요");
         bookData.setdate(scanner.nextInt());
@@ -39,13 +39,13 @@ public class Accountbook {
 //        }
     }
 
-    private static void delete() {
+    private void delete() {
         System.out.println("번호를 입력");
         int inputNumber = scanner.nextInt();
         accountbook.remove(inputNumber);
     }
 
-    private static void update() {
+    private void update() {
         System.out.println("번호를 입력");
         int inputNumber = scanner.nextInt();
 
@@ -61,13 +61,12 @@ public class Accountbook {
         bookData.setNumber(++count);
 
 
-
-       // accountbook.set(inputNumber, bookData);
+        // accountbook.set(inputNumber, bookData);
 
 
     }
 
-    private static void readData() {
+    private void readData() {
         System.out.println("번호를 입력");
         int inputnumber = scanner.nextInt();
         BookData bookItem = accountbook.get(inputnumber);
@@ -79,7 +78,7 @@ public class Accountbook {
 
     }
 
-    private static void readAllData() {
+    private void readAllData() {
         for (int i = 0; i < accountbook.size(); i++) {
             System.out.println("번호 " + accountbook.get(i).getNumber());
             System.out.println("날짜 " + accountbook.get(i).getDate());
@@ -103,7 +102,7 @@ public class Accountbook {
 //        // updateUser(id,password);
 //    }
 
-    public static void accountRunning() {
+    public  void accountRunning() {
         while (true) {
             menu();
             int i = scanner.nextInt();

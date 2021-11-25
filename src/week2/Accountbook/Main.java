@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean isrunning = true;
+        Accountbook accountbook = new Accountbook();
         UserLogin u = new UserLogin();
         while (isrunning) {
             u.usermenu();
@@ -16,7 +17,7 @@ public class Main {
                     u.userInput();
                     break;
                 case 2:
-                    Accountbook.accountRunning();
+                    accountbook.accountRunning();
                     break;
                 case 0:
                     isrunning = false;
