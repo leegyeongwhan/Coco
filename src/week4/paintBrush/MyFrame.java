@@ -10,15 +10,15 @@ public class MyFrame extends Frame {
     MenuBar menuBar = new MenuBar();
     private int lwidth = 3;
     private int x1, y1, x2, y2,dx1,dy1;
-    Frame f = new Frame();
-    private boolean isLine = false;
+    private boolean isLine = true;
+    private  boolean isBlack,isRed,isBlue;
+    private  boolean isRect,isCir,isCuv;
+    MyFrame(){
 
-
-
-
+    }
     public MyFrame(String title) {
         super(title);
-        setSize(500, 500);
+        setBounds(250, 100, 1200, 800);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -50,7 +50,7 @@ public class MyFrame extends Frame {
 
         figurePanel.setLayout(new GridLayout(2, 2));
         removePanel.setLayout(new GridLayout(1, 1));
-        f.setLayout(new BorderLayout());
+        setLayout(new BorderLayout());
         Button north = new Button("North");
         MenuBar mb = new MenuBar();
         Menu mEdit = new Menu("NEW");
@@ -102,25 +102,45 @@ public class MyFrame extends Frame {
 
 
 // ---------------------------FRAME에 판넬추가------------------------------------------
-        f.add(north, "North"); // f.add("North",north); . 와 같이 쓸 수도 있다
-        f.add(colorPanel, "South"); // South의 대소문자 정확히
-        f.add(removePanel, "East"); // East , BorderLayout.EAST 대신 사용가능
-        f.add(figurePanel, "West");
-        f.add(center, "Center");
-        f.setSize(500, 500);
-        f.setVisible(true);
+        add(north, "North"); // f.add("North",north); . 와 같이 쓸 수도 있다
+        add(colorPanel, "South"); // South의 대소문자 정확히
+        add(removePanel, "East"); // East , BorderLayout.EAST 대신 사용가능
+        add(figurePanel, "West");
+        add(center, "Center");
+
 //        --------------------------------------------------------------
 
     }
 
-
     public void paintComponent(Graphics g) {
         super.paintComponents(g);
-        Graphics2D g2 = (Graphics2D) g;
+        Graphics2D g2 = (Graphics2D) g;  //참조변수 형변환
         g2.setStroke(new BasicStroke(lwidth));
 
+        if (isBlack) {
+            g2.setColor(Color.black);
+        }
+        if (isRed) {
+            g2.setColor(Color.red);
+        }
+        if (isBlue) {
+            g2.setColor(Color.blue);
+        }
 
+        if (isLine) {
+            g2.drawLine(x1, y1, x2, y2);
+        }
+        if (isRect) {
+            g2.drawRect(Math.min(x1, x2), Math.min(y1, y2), Math.abs(x1 - x2), Math.abs(y1 - y2));
+        }
+        if (isCir) {
+            g2.drawOval(Math.min(x1, x2), Math.min(y1, y2), Math.abs(x1 - x2), Math.abs(y1 - y2));
+        }
+        if (isCuv) {
+            g2.fillOval(dx1 - 5, dy1 - 5, 10, 10);
+        }
     }
+
 
 
     public void paint(Graphics g) {
