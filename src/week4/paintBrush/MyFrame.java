@@ -4,18 +4,27 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class MyFrame extends Frame {
-    Button red, green, blue;
-    Button allRemove, selectRemove;
-    Button square, circle, beeline, curve;
-    MenuBar menuBar = new MenuBar();
-    private int lwidth = 3;
-    private int x1, y1, x2, y2,dx1,dy1;
+
+    private int x1;
+    private int y1;
+    private int x2;
+    private int y2;
+    private static int dx1;
+    private static int dy1;
+    private boolean isBlack = true;
+    private boolean isRed = false;
+    private boolean isBlue = false;
     private boolean isLine = true;
-    private  boolean isBlack,isRed,isBlue;
-    private  boolean isRect,isCir,isCuv;
-    MyFrame(){
+    private boolean isRect = false;
+    private boolean isCir = false;
+    private boolean isCuv = false;
+
+    private int lwidth = 3;
+
+    MyFrame() {
 
     }
+
     public MyFrame(String title) {
         super(title);
         setBounds(250, 100, 1200, 800);
@@ -30,7 +39,7 @@ public class MyFrame extends Frame {
         addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseDragged(MouseEvent me) {
-                if (isLine) {
+                if (isCuv) {
                     dx1 = me.getX();
                     dy1 = me.getY();
                     repaint();
@@ -51,7 +60,8 @@ public class MyFrame extends Frame {
         figurePanel.setLayout(new GridLayout(2, 2));
         removePanel.setLayout(new GridLayout(1, 1));
         setLayout(new BorderLayout());
-        Button north = new Button("North");
+
+        Checkbox line = new Checkbox("직선", true);
         MenuBar mb = new MenuBar();
         Menu mEdit = new Menu("NEW");
         Menu mView = new Menu("OPEN");
@@ -62,10 +72,10 @@ public class MyFrame extends Frame {
         // -----------------------------------------------------------
 
         //---------------------west-----------------------
-        square = new Button("사각형");
-        circle = new Button("원");
-        beeline = new Button("직선");
-        curve = new Button("곡선");
+        Button square = new Button("사각형");
+        Button circle = new Button("원");
+        Button beeline = new Button("직선");
+        Button curve = new Button("곡선");
 
         square.addActionListener(new FigureHandler());
         circle.addActionListener(new FigureHandler());
@@ -80,29 +90,29 @@ public class MyFrame extends Frame {
 
 
         //-------east------------------------
-        allRemove = new Button("allRemove");
-        selectRemove = new Button("selectRemove");
+        Button  allRemove = new Button("allRemove");
+        Button  selectRemove = new Button("selectRemove");
         removePanel.add(allRemove);
         removePanel.add(selectRemove);
         //-------------------------------------------
 
 
         //--------------------south----------------------
-        red = new Button("RED");
-        green = new Button("GREEN");
-        blue = new Button("BLUE");
+        Button black = new Button("검정색");
+        Button red = new Button("빨간색");
+        Button  blue = new Button("파란색");
 
+        black.addActionListener(new ColorHandler());
         red.addActionListener(new ColorHandler());
-        green.addActionListener(new ColorHandler());
         blue.addActionListener(new ColorHandler());
+        colorPanel.add(black);
         colorPanel.add(red);
-        colorPanel.add(green);
         colorPanel.add(blue);
         //--------------------------------------
 
 
 // ---------------------------FRAME에 판넬추가------------------------------------------
-        add(north, "North"); // f.add("North",north); . 와 같이 쓸 수도 있다
+        add(line, "North"); // f.add("North",north); . 와 같이 쓸 수도 있다
         add(colorPanel, "South"); // South의 대소문자 정확히
         add(removePanel, "East"); // East , BorderLayout.EAST 대신 사용가능
         add(figurePanel, "West");
@@ -142,7 +152,6 @@ public class MyFrame extends Frame {
     }
 
 
-
     public void paint(Graphics g) {
         paintComponent(g);
     }
@@ -169,4 +178,67 @@ public class MyFrame extends Frame {
     }
 
 
+    class ColorHandler implements ActionListener {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getActionCommand().equals("검정색")) {
+                isBlack = true;
+                isRed = false;
+                isBlue = false;
+            }
+            if (e.getActionCommand().equals("빨간색")) {
+                isBlack = false;
+                isRed = true;
+                isBlue = false;
+            }
+            if (e.getActionCommand().equals("파란색")) {
+                isBlack = false;
+                isRed = false;
+                isBlue = true;
+            }
+        }
+    }
+
+
+    class FigureHandler implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getActionCommand().equals("직선")) {
+                isLine = true;
+                isRect = false;
+                isCir = false;
+                isCuv = false;
+            }
+            if (e.getActionCommand().equals("곡선")) {
+                isLine = false;
+                isRect = false;
+                isCir = false;
+                isCuv = true;
+
+            }
+            if (e.getActionCommand().equals("사각형")) {
+                isLine = false;
+                isRect = true;
+                isCir = false;
+                isCuv = false;
+
+            }
+            if (e.getActionCommand().equals("원")) {
+                isLine = false;
+                isRect = false;
+                isCir = true;
+                isCuv = false;
+
+            }
+
+        }
+    }
+
+
 }
+
+
+

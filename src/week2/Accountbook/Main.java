@@ -4,17 +4,16 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
-    private static User userdata = new User();
-    private static boolean isrunning = true;
-    private static HashSet<User>  user =  new HashSet<>();
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean isrunning = true;
+        UserLogin u = new UserLogin();
         while (isrunning) {
-            usermenu();
+            u.usermenu();
             int input = scanner.nextInt();
             switch (input) {
                 case 1:
-                    userInput();
+                    u.userInput();
                     break;
                 case 2:
                     Accountbook.accountRunning();
@@ -29,29 +28,5 @@ public class Main {
         }
 
     }
-
-    private static void login() {
-
-    }
-
-    private static void userInput() {
-        System.out.println("id입력");
-        userdata.setId(scanner.next());
-        String id = userdata.getId();
-        System.out.println("password입력");
-        userdata.setPassword(scanner.next());
-        String password = userdata.getPassword();
-        User u = new User(id,password);
-        boolean result = user.add(u);
-        System.out.println(result);
-    }
-
-    private static void usermenu() {
-        System.out.println("사용자등록1");
-        System.out.println("사용자입력2");
-        System.out.println("종료0");
-    }
-
-
 }
 
