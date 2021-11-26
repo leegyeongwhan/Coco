@@ -1,5 +1,7 @@
 package week4.paintBrush;
 
+import week4.AwtStudy.DrawBoard.src.DrawFrame;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -52,39 +54,35 @@ public class MyFrame extends Frame {
 
     public void creatLayout() {
         //---------------------------판넬 레이아웃 설정-----------------------------------------------
-        Panel figurePanel = new Panel();
+
         Panel removePanel = new Panel();
-        Panel colorPanel = new Panel();
-        Panel center = new Panel();
+        Panel figurePanel = new Panel();
 
         figurePanel.setLayout(new GridLayout(2, 2));
         removePanel.setLayout(new GridLayout(1, 1));
         setLayout(new BorderLayout());
+//-----------------------------NORTH--------------------------
+        Panel northPanel = new Panel();
+        northPanel.setBackground(Color.lightGray);
+        CheckboxGroup lineCheckbox = new CheckboxGroup();
+        Checkbox line = new Checkbox("직선", lineCheckbox,true);
+        Checkbox curve = new Checkbox("곡선",lineCheckbox, true);
 
-        Checkbox line = new Checkbox("직선", true);
-        MenuBar mb = new MenuBar();
-        Menu mEdit = new Menu("NEW");
-        Menu mView = new Menu("OPEN");
-        Menu mHelp = new Menu("EXIT");
-        mb.add(mEdit);
-        mb.add(mView);
-        mb.add(mHelp);
+        line.addItemListener(new LineHandler());
+        curve.addItemListener(new LineHandler());
         // -----------------------------------------------------------
 
         //---------------------west-----------------------
+
+
+
         Button square = new Button("사각형");
         Button circle = new Button("원");
-        Button beeline = new Button("직선");
-        Button curve = new Button("곡선");
 
         square.addActionListener(new FigureHandler());
         circle.addActionListener(new FigureHandler());
-        beeline.addActionListener(new FigureHandler());
-        curve.addActionListener(new FigureHandler());
-        figurePanel.add(square);
-        figurePanel.add(circle);
-        figurePanel.add(beeline);
-        figurePanel.add(curve);
+
+
 
         //-------------------------------------------
 
@@ -92,31 +90,43 @@ public class MyFrame extends Frame {
         //-------east------------------------
         Button  allRemove = new Button("allRemove");
         Button  selectRemove = new Button("selectRemove");
-        removePanel.add(allRemove);
-        removePanel.add(selectRemove);
+
+
+
         //-------------------------------------------
 
 
         //--------------------south----------------------
-        Button black = new Button("검정색");
-        Button red = new Button("빨간색");
-        Button  blue = new Button("파란색");
+        Panel colorPanel = new Panel();
+        colorPanel.setBackground(Color.lightGray);
+        CheckboxGroup colorCheckbox = new CheckboxGroup();
+        Checkbox black = new Checkbox("검은색", colorCheckbox, true);
+        Checkbox red = new Checkbox("빨간색", colorCheckbox, false);
+        Checkbox blue = new Checkbox("파란색", colorCheckbox, false);
 
-        black.addActionListener(new ColorHandler());
-        red.addActionListener(new ColorHandler());
-        blue.addActionListener(new ColorHandler());
-        colorPanel.add(black);
-        colorPanel.add(red);
-        colorPanel.add(blue);
+        black.addItemListener(new ColorHandler());
+        red.addItemListener(new ColorHandler());
+        blue.addItemListener(new ColorHandler());
+
         //--------------------------------------
 
 
 // ---------------------------FRAME에 판넬추가------------------------------------------
-        add(line, "North"); // f.add("North",north); . 와 같이 쓸 수도 있다
+
+        northPanel.add(line);
+        northPanel.add(curve);
+        figurePanel.add(square);
+        figurePanel.add(circle);
+        colorPanel.add(black);
+        colorPanel.add(red);
+        colorPanel.add(blue);
+        removePanel.add(allRemove);
+        removePanel.add(selectRemove);
+
+        add(northPanel, "North"); // f.add("North",north); . 와 같이 쓸 수도 있다
         add(colorPanel, "South"); // South의 대소문자 정확히
         add(removePanel, "East"); // East , BorderLayout.EAST 대신 사용가능
         add(figurePanel, "West");
-        add(center, "Center");
 
 //        --------------------------------------------------------------
 
@@ -178,28 +188,6 @@ public class MyFrame extends Frame {
     }
 
 
-    class ColorHandler implements ActionListener {
-
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if (e.getActionCommand().equals("검정색")) {
-                isBlack = true;
-                isRed = false;
-                isBlue = false;
-            }
-            if (e.getActionCommand().equals("빨간색")) {
-                isBlack = false;
-                isRed = true;
-                isBlue = false;
-            }
-            if (e.getActionCommand().equals("파란색")) {
-                isBlack = false;
-                isRed = false;
-                isBlue = true;
-            }
-        }
-    }
 
 
     class FigureHandler implements ActionListener {
@@ -232,6 +220,45 @@ public class MyFrame extends Frame {
                 isCir = true;
                 isCuv = false;
 
+            }
+        }
+    }
+
+    class ColorHandler implements ItemListener {
+        @Override
+        public void itemStateChanged(ItemEvent e) {
+            if (e.getItem().equals("검은색")) {
+                isBlack = true;
+                isRed = false;
+                isBlue = false;
+            }
+            if (e.getItem().equals("빨간색")) {
+                isBlack = false;
+                isRed = true;
+                isBlue = false;
+            }
+            if (e.getItem().equals("파란색")) {
+                isBlack = false;
+                isRed = false;
+                isBlue = true;
+            }
+        }
+    }
+
+    private class LineHandler implements ItemListener {
+        @Override
+        public void itemStateChanged(ItemEvent e) {
+            if (e.getItem().equals("직선")) {
+                isLine = true;
+                isRect = false;
+                isCir = false;
+                isCuv = false;
+            }
+            if (e.getItem().equals("곡선")) {
+                isLine = false;
+                isRect = false;
+                isCir = false;
+                isCuv = true;
             }
 
         }
