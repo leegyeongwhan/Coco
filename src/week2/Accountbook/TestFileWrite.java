@@ -8,7 +8,7 @@ public class TestFileWrite {
 
         try {
             OutputStream output = new FileOutputStream("c:/AccountBook/AccountWrit.txt");
-            String str ="오늘 날씨는 아주 좋습니다.";
+            String str ="오늘 날씨는 아주 좋습니다2.";
             byte[] by=str.getBytes();
             output.write(by);
 
