@@ -29,11 +29,13 @@ public class ProductManager {
     public void ProductInfoUpdat(int number) {
         try {
             for (int i = 0; i < this.productList.size(); i++) {
-                ProductInfo pn = this.productList.get(i);
+                ProductInfo pn1 = this.productList.get(i);
                 //      System.out.println(pn);
-                if (number == pn.getNumber()) {
+                if (number == pn1.getNumber()) {
                     this.productList.remove(i);
-                    this.productList.add(i, productMakeInfo());
+                    ProductInfo pn2 = productMakeInfo();  //옮기기 위한 객체생성
+                    pn2.setNumber(pn1.getNumber());
+                    this.productList.add(i, pn2);
                     System.out.println("수정이 완료 되었습니다");
                     break;
                 }
