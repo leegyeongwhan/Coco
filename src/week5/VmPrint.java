@@ -7,25 +7,31 @@ public class VmPrint {
 
     public void menuPrint() {
         ProductManager pm = new ProductManager();
-
+        ProductFile  pf  =new ProductFile();
         boolean fleg = true;
         while (fleg) {
-            System.out.println("출력1,입력2,수정3,삭제4,종료5");
+            System.out.println("출력1,입력2,수정3,삭제4, 파일저장5 ,파일 불러오기6,종료7");
             int power = scanner.nextInt();
             switch (power) {
                 case 1:
-                    pm.ProductView();
+                    pm.ProductInfoView();
                     break;
                 case 2:
-                    pm.ProductInsert(productMakeInfo());
+                    pm.ProductInfoInsert(productMakeInfo());
                     break;
                 case 3:
-                    pm.ProductUpdat();
+                    pm.ProductInfoUpdat();
                     break;
                 case 4:
-                    pm.ProductDelete();
+                    pm.ProductInfoDelete();
                     break;
                 case 5:
+                    pf.writeProductFile(pm.getProductList());
+                    break;
+                case 6:
+
+                    break;
+                case 7:
                     fleg = false;
                     break;
                 default:
