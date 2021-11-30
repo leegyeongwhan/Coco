@@ -22,7 +22,7 @@ public class ProductFile {
             outFile = new BufferedOutputStream(new FileOutputStream(file));
             for (int i = 0; i < productInfoList.size(); i++) {
                 String str = productInfoList.get(i).getNumber() + "," + productInfoList.get(i).getName() + ","
-                        + productInfoList.get(i).getPrice() + "," + productInfoList.get(i).getCount() + "\t";
+                        + productInfoList.get(i).getPrice() + "," + productInfoList.get(i).getCount() + "\n";
                 byte[] b = str.getBytes();
                 outFile.write(b);
             }
