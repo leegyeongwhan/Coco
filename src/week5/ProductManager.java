@@ -26,8 +26,21 @@ public class ProductManager {
         }
     }
 
-    public void ProductInfoUpdat() {
-
+    public void ProductInfoUpdat(int number) {
+        try {
+            for (int i = 0; i < this.productList.size(); i++) {
+                ProductInfo pn = this.productList.get(i);
+                //      System.out.println(pn);
+                if (number == pn.getNumber()) {
+                    this.productList.remove(i);
+                    this.productList.add(i, productMakeInfo());
+                    System.out.println("수정이 완료 되었습니다");
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("수정 실패");
+        }
     }
 
 
@@ -35,7 +48,7 @@ public class ProductManager {
         try {
             for (int i = 0; i < this.productList.size(); i++) {
                 ProductInfo pn = this.productList.get(i);  //인덱스를 하나씩 담아서 비교
-          //      System.out.println(pn);
+                //      System.out.println(pn);
                 if (number == pn.getNumber()) {
                     this.productList.remove(i);  //
                     System.out.println("삭제가 완료 됐습니다");
@@ -58,6 +71,18 @@ public class ProductManager {
             System.out.println();
         }
         System.out.println("--------------------------------");
+    }
+
+    public ProductInfo productMakeInfo() {
+        Scanner scanner = new Scanner(System.in);
+        ProductInfo pi = new ProductInfo();
+        System.out.println("제품명");
+        pi.setName(scanner.next());
+        System.out.println("가격");
+        pi.setPrice(scanner.nextInt());
+        System.out.println("수량");
+        pi.setCount(scanner.nextInt());
+        return pi;
     }
 
 }

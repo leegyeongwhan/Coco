@@ -7,7 +7,7 @@ public class VmPrint {
 
     public void menuPrint() {
         ProductManager pm = new ProductManager();
-        ProductFile  pf  =new ProductFile();
+        ProductFile pf = new ProductFile();
         boolean fleg = true;
         while (fleg) {
             System.out.println("출력1,입력2,수정3,삭제4, 파일저장5 ,파일 불러오기6,종료7");
@@ -17,10 +17,11 @@ public class VmPrint {
                     pm.ProductInfoView();
                     break;
                 case 2:
-                    pm.ProductInfoInsert(productMakeInfo());
+                    pm.ProductInfoInsert(pm.productMakeInfo());
                     break;
                 case 3:
-                    pm.ProductInfoUpdat();
+                    System.out.println("수정할 번호를 입력하세요");
+                    pm.ProductInfoUpdat(scanner.nextInt());
                     break;
                 case 4:
                     System.out.println("삭제할 번호를 입력하세요");
@@ -41,15 +42,5 @@ public class VmPrint {
         }
     }
 
-    public ProductInfo productMakeInfo() {
-        scanner.reset();
-        ProductInfo pi = new ProductInfo();
-        System.out.println("제품명");
-        pi.setName(scanner.next());
-        System.out.println("가격");
-        pi.setPrice(scanner.nextInt());
-        System.out.println("수량");
-        pi.setCount(scanner.nextInt());
-        return pi;
-    }
+
 }
