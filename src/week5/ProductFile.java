@@ -15,7 +15,7 @@ public class ProductFile {
 //        return;
 //    }
 
-    public  void writeProductFile(List<ProductInfo> productList)  {
+    public  void writeProductFile(List<ProductInfo> productInfoList)  {
         file = new File("C:\\Users\\leekh\\OneDrive\\바탕 화면\\Test.txt");
         OutputStream outFile = null;
         try {
@@ -26,9 +26,9 @@ public class ProductFile {
                 Desktop.getDesktop().edit(file);
             }
             outFile = new BufferedOutputStream(new FileOutputStream(file));
-            for (int i = 0; i < productList.size(); i++) {
-                String str = productList.get(i).getNumber() + "," + productList.get(i).getName() + ","
-                        + productList.get(i).getPrice() + "," + productList.get(i).getCount();
+            for (int i = 0; i < productInfoList.size(); i++) {
+                String str = productInfoList.get(i).getNumber() + "," + productInfoList.get(i).getName() + ","
+                        + productInfoList.get(i).getPrice() + "," + productInfoList.get(i).getCount();
                 byte[] b = str.getBytes();
                 outFile.write(b);
             }
@@ -40,7 +40,12 @@ public class ProductFile {
             }catch (Exception e){
             }
         }
-
-
     }
+
+    public void  readerProductFile(){
+        file = new File("C:\\Users\\leekh\\OneDrive\\바탕 화면\\Test.txt");
+        FileReader fileReader = null;
+    }
+
+
 }

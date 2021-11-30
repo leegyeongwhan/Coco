@@ -16,9 +16,10 @@ public class ProductManager {
     public void setProductList(List<ProductInfo> productList) {
         this.productList = productList;
     }
+
     public void ProductInfoInsert(ProductInfo productInfo) {
         try {
-            productInfo.setNumber(this.productNumber++);
+            productInfo.setNumber(++this.productNumber);
             productList.add(productInfo);
         } catch (Exception e) {
             System.out.println("입력 오류" + e.getMessage());
@@ -29,14 +30,34 @@ public class ProductManager {
 
     }
 
-    public void ProductInfoDelete() {
+
+    public void ProductInfoDelete(int number) {  //1
+        try {
+            for (int i = 0; i < this.productList.size(); i++) {
+                ProductInfo pn = this.productList.get(i);  //인덱스를 하나씩 담아서 비교
+          //      System.out.println(pn);
+                if (number == pn.getNumber()) {
+                    this.productList.remove(i);  //
+                    System.out.println("삭제가 완료 됐습니다");
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("삭제중 에러 발생");
+        }
 
     }
 
     public void ProductInfoView() {
+        System.out.println("--------------------------------");
         for (int i = 0; i < productList.size(); i++) {
-            System.out.println(productList.get(i));
+            System.out.println("번호:" + this.productList.get(i).getNumber());
+            System.out.println("제품명:" + this.productList.get(i).getName());
+            System.out.println("가격:" + this.productList.get(i).getPrice());
+            System.out.println("수량:" + this.productList.get(i).getCount());
+            System.out.println();
         }
+        System.out.println("--------------------------------");
     }
 
 }

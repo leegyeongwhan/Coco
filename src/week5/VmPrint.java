@@ -23,13 +23,13 @@ public class VmPrint {
                     pm.ProductInfoUpdat();
                     break;
                 case 4:
-                    pm.ProductInfoDelete();
+                    System.out.println("삭제할 번호를 입력하세요");
+                    pm.ProductInfoDelete(scanner.nextInt());
                     break;
                 case 5:
                     pf.writeProductFile(pm.getProductList());
                     break;
                 case 6:
-
                     break;
                 case 7:
                     fleg = false;
