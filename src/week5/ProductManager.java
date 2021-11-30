@@ -66,6 +66,7 @@ public class ProductManager {
     public void ProductInfoView() {
         System.out.println("--------------------------------");
         for (int i = 0; i < productList.size(); i++) {
+          //  System.out.println(productList.get(i));
             System.out.println("번호:" + this.productList.get(i).getNumber());
             System.out.println("제품명:" + this.productList.get(i).getName());
             System.out.println("가격:" + this.productList.get(i).getPrice());

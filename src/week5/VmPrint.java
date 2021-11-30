@@ -8,6 +8,7 @@ public class VmPrint {
     public void menuPrint() {
         ProductManager pm = new ProductManager();
         ProductFile pf = new ProductFile();
+        ProductFileReader pr = new ProductFileReader();
         boolean fleg = true;
         while (fleg) {
             System.out.println("출력1,입력2,수정3,삭제4, 파일저장5 ,파일 불러오기6,종료7");
@@ -31,6 +32,7 @@ public class VmPrint {
                     pf.writeProductFile(pm.getProductList());
                     break;
                 case 6:
+                    pm.setProductList(pf.readProductFile());
                     break;
                 case 7:
                     fleg = false;
