@@ -1,6 +1,5 @@
 package week4.paintBrush;
 
-import week4.AwtStudy.DrawBoard.src.DrawFrame;
 
 import java.awt.*;
 import java.awt.event.*;

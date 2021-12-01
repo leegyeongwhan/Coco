@@ -58,7 +58,6 @@ public class VmPrint {
                     pm.ProductInfoView();
                     break;
                 case 2:
-                    user.insertCoin();
                     break;
                 case 3:
                     power = false;
