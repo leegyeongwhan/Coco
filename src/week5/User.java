@@ -11,6 +11,4 @@ public class User {
         wallet.setMoney(scanner.nextInt());
 
     }
-
-
 }

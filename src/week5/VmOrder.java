@@ -10,7 +10,7 @@ public class VmOrder {
 
     public void menu() {
         VmPrint vm = new VmPrint();
-        UserFrame uf = new UserFrame();
+        UserFrame uf;
         Scanner scanner = new Scanner(System.in);
         boolean fleg = true;
         while (fleg) {
@@ -18,7 +18,7 @@ public class VmOrder {
             int power = scanner.nextInt();
             switch (power) {
                 case 1:
-                    uf.UserFrameCreate();
+                     new UserFrame("자판기");
                     break;
                 case 2:
                     vm.managerMenuPrint();
