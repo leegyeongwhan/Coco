@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserFrame extends Frame {
-    private JButton jb5;
+
 
     UserFrame() {
     }
@@ -57,14 +57,14 @@ public class UserFrame extends Frame {
         pm.setProductList(pf.readProductFile());   //파일에있는 정보를 꺼내온후 list에 담는다
         list = pm.getProductList();
         //////
-        JRadioButton  jb1;
-        JRadioButton  jb2;
-        JRadioButton  jb3;
-        JRadioButton  jb4;
-        jb1 = new JRadioButton (list.get(0).getName());       /////////////좋은 방법이 없을까??
-        jb2 = new JRadioButton (list.get(1).getName());
-        jb3 = new JRadioButton (list.get(2).getName());
-        jb4 = new JRadioButton (list.get(3).getName());
+        JRadioButton jb1;
+        JRadioButton jb2;
+        JRadioButton jb3;
+        JRadioButton jb4;
+        jb1 = new JRadioButton(list.get(0).getName()+list.get(0).getPrice());       /////////////좋은 방법이 없을까??
+        jb2 = new JRadioButton(list.get(1).getName()+list.get(1).getPrice());
+        jb3 = new JRadioButton(list.get(2).getName()+list.get(2).getPrice());
+        jb4 = new JRadioButton(list.get(3).getName()+list.get(3).getPrice());
         ButtonGroup bg = new ButtonGroup();
         bg.add(jb1);
         bg.add(jb2);
@@ -84,7 +84,7 @@ public class UserFrame extends Frame {
         menuPanel1.add(money);
         JTextArea ja = new JTextArea(10, 30);
         menuPanel2.add(ja);
-        jb5 = new JButton("계   산");
+        JButton jb5 = new JButton("계   산");
         JButton jb6 = new JButton("종   료");
         buttonPanel2.add(jb5);
         buttonPanel2.add(jb6);
@@ -98,7 +98,7 @@ public class UserFrame extends Frame {
         add(pg2, BorderLayout.CENTER);
 
         List<ProductInfo> finalList = list;
-     //   System.out.println(finalList);
+        //   System.out.println(finalList);
         jb5.addActionListener(new ActionListener() {   //계산버튼
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -115,18 +115,18 @@ public class UserFrame extends Frame {
                     name = finalList.get(0).getName();
                     price = finalList.get(0).getPrice();
                 } else if (jb2.isSelected()) {
-                    name = jb2.getName();
+                    name = finalList.get(1).getName();
                     price = finalList.get(1).getPrice();
                 } else if (jb3.isSelected()) {
-                    name = jb3.getName();
+                    name = finalList.get(2).getName();
                     price = finalList.get(2).getPrice();
                 } else if (jb4.isSelected()) {
-                    name = jb4.getName();
+                    name = finalList.get(3).getName();
                     price = finalList.get(3).getPrice();
                 }
                 int su1 = Integer.parseInt(su.getText());
                 int money1 = Integer.parseInt(money.getText());
-                ja.append("제품명:" + name + "\n");
+                ja.append("제품명 :" + name + "\n");
                 ja.append("수 량" + su1 + "\n");
                 ja.append("넣은돈" + money1 + "\n");
                 ja.append("거스름돈" + (money1 - price) + "\n");
@@ -134,11 +134,17 @@ public class UserFrame extends Frame {
                 bg.clearSelection();
                 su.setText(null);
                 money.setText(null);
+             ///   pf.writeProductFile(finalList);  //파일저장  //어떻게해야하지?
             }
         });
 
 
+        jb6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
-
 
 }

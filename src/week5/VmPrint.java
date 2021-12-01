@@ -53,7 +53,6 @@ public class VmPrint {
         pm.setProductList(pf.readProductFile());
         User user = new User();
         while (power) {
-            System.out.println("품목 보기1, 돈 넣기2,종료 3");
             switch (scanner.nextInt()) {
                 case 1:
                     pm.ProductInfoView();
