@@ -43,7 +43,7 @@
 [ WEEK 4](https://github.com/leegyeongwhan/Coco/tree/master/src/week4)
 | 미션                |  링크                                                  |
 | :---------------- | -------------------------------------------------------- |
-| 그림판|  [링크](https://github.com/leegyeongwhan/Coco/tree/master/src/week4/paintBrush    |
+| 그림판|  [링크](https://github.com/leegyeongwhan/Coco/tree/master/src/week4/paintBrush)    |
 
 # WEEK 5 (2021.11.29 ~ 2021.11.30)
 
@@ -51,4 +51,4 @@
 [ WEEK 5](https://github.com/leegyeongwhan/Coco/tree/master/src/week5)
 | 미션                |  링크                                                  |
 | :---------------- | -------------------------------------------------------- |
-| 개인프로젝트|    |  [링크](https://github.com/leegyeongwhan/Coco/tree/master/src/week5) | 
+| 개인프로젝트|        [링크](https://github.com/leegyeongwhan/Coco/tree/master/src/week5)         |
