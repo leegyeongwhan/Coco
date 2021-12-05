@@ -2,6 +2,7 @@
 
 ------
 2021.11.01(월)  2021.12.02(목) 5주간,  미션과 공부를 정리
+[벨로그](https://velog.io/@leekhy02)
 # 회고 
 ------
 
@@ -43,7 +44,7 @@
 [ WEEK 4](https://github.com/leegyeongwhan/Coco/tree/master/src/week4)
 | 미션                |  링크                                                  |
 | :---------------- | -------------------------------------------------------- |
-| 그림판|    https://github.com/leegyeongwhan/Coco/tree/master/src/week4/paintBrush |
+| 그림판|  [링크](https://github.com/leegyeongwhan/Coco/tree/master/src/week4/paintBrush)    |
 
 # WEEK 5 (2021.11.29 ~ 2021.11.30)
 
@@ -51,4 +52,4 @@
 [ WEEK 5](https://github.com/leegyeongwhan/Coco/tree/master/src/week5)
 | 미션                |  링크                                                  |
 | :---------------- | -------------------------------------------------------- |
-| 개인프로젝트|    |
+| 개인프로젝트|        [링크](https://github.com/leegyeongwhan/Coco/tree/master/src/week5)         |
