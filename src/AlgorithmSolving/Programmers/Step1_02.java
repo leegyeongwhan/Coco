@@ -32,6 +32,6 @@ public class Step1_02 {
 //            System.out.println(arr[i]);
 //            i++;
 //            n--;
-        }
+ //       }
     }
 }

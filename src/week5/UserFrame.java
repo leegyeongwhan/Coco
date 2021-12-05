@@ -17,7 +17,7 @@ public class UserFrame extends Frame {
 
     public UserFrame(String title) {
         super(title);
-        setBounds(250, 100, 1200, 800);
+        setBounds(300, 300, 1200, 800);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -129,12 +129,13 @@ public class UserFrame extends Frame {
                 ja.append("제품명 :" + name + "\n");
                 ja.append("수 량" + su1 + "\n");
                 ja.append("넣은돈" + money1 + "\n");
-                ja.append("거스름돈" + (money1 - price) + "\n");
+                ja.append("거스름돈" + (money1 - (price*su1)) + "\n");
                 ja.append("남은 수량" + (amount[0] - su1) + "\n");             //수량,가격,거스름돈
                 bg.clearSelection();
                 su.setText(null);
                 money.setText(null);
-             ///   pf.writeProductFile(finalList);  //파일저장  //어떻게해야하지?
+
+            //    pf.writeProductFile(finalList);  //파일저장  //어떻게해야하지?
             }
         });
 
