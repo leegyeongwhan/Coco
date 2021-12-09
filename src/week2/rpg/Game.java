@@ -67,7 +67,7 @@ public class Game {
             } else if (locationPlayer[0] == locationMine[0] && locationPlayer[1] == locationMine[1]) {
                 System.out.println("마인을 밟았습니다");
                 return false;
-            }
+        }
         }
     }
 
